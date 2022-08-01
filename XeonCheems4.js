@@ -630,17 +630,17 @@ XeonBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
 //anti bad words by xeon
 if (antiToxic)
 if (bad.includes(messagesD)) {
-tos = ['Hey, watch your mouth','Never been taught how to speak?','Stop being toxic my friend🤢','Dont be toxic🦄']
+tos = ['bang gak boleh toxic','kasar banget','berhenti toxic kawanku🤢','jangan toxic bang, inget tuhan']
 sin =  tos[Math.floor(Math.random() * (tos.length))]
 reply(sin)
 if (m.text) {
-bvl = `\`\`\`「 Bad Word Detected 」\`\`\`\n\nYou are using bad word but you are an admin that's why i won't kick you😇`
+bvl = `\`\`\`「 Bad Word Detected 」\`\`\`\n\nKamu berkata kasar, tapi untungnya aku baik`
 if (isAdmins) return reply(bvl)
 if (m.key.fromMe) return reply(bvl)
 if (isCreator) return reply(bvl)
 kice = m.sender
 await XeonBotInc.groupParticipantsUpdate(m.chat, [kice], 'remove')
-XeonBotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${kice.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})}
+XeonBotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${kice.split("@")[0]} telah ditendang karena berkata kasar`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})}
 }
 //antilink youtube video by xeon
 if (AntiLinkYoutubeVid)
@@ -1067,16 +1067,16 @@ Click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
             if (!afkTime || afkTime < 0) continue
             let reason = user.afkReason || ''
             reply(`
-Don't tag him!
-He's in AFK/Offline ${reason ? 'dengan alasan ' + reason : 'no reason'}
-It's been ${clockString(new Date - afkTime)}
+Jangan tag dia bang
+dia sedang afk ${reason ? 'dengan alasan ' + reason : 'no reason'}
+Sejak ${clockString(new Date - afkTime)}
 `.trim())
         }
 
         if (db.data.users[m.sender].afkTime > -1) {
             let user = global.db.data.users[m.sender]
             reply(`
-You Came Back Online From AFK${user.afkReason ? ' after ' + user.afkReason : ''}
+Selamat datang kembali${user.afkReason ? ' setelah ' + user.afkReason : ''}
 In ${clockString(new Date - user.afkTime)}
 `.trim())
             user.afkTime = -1
@@ -1096,7 +1096,7 @@ const latensie = speed() - timestampe
                 const menulist = `┌─❖
 │「 Hi 👋 」
 └┬❖ 「 ${pushname} 」
-┌┤✑  How Are You? 😄
+┌┤✑  Bagaimana kabarmu hari ini? 😄
 │└────────────┈ ⳹
 │
 └─「 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊 」       
@@ -1717,7 +1717,7 @@ if (isBanChat) return reply(mess.banChat)
 case 'guess': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
-if (!args.join(" ")) return replay(`Example : ${prefix + command} song\n\nOption : \n1.song\n2. picture\n3. saying\n4. sentence\n5. lyrics\n6.food`)
+if (!args.join(" ")) return replay(`Example : ${prefix + command} song\n\nOption : \n1.song\n2. picture\n3. saying\n4. lyrics\n5.food`)
 if (args[0] === "song") {
 if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
 let anu = await fetchJson('https://fatiharridho.github.io/tebaklagu.json')
@@ -1744,32 +1744,6 @@ if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
 console.log("Answer: " + result.jawaban)
 XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'guess picture', buttonText: { displayText: 'Guess the picture' }, type: 1 }], `Time has run out\nAnswer:  ${tebakgambar[m.sender.split('@')[0]]}\n\nWant to play? press the button below`,`${global.botname}`, m)
 delete tebakgambar[m.sender.split('@')[0]]
-}
-} else if (args[0] === 'word') {
-if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
-let anu = await fetchJson('https://raw.githubusercontent.com/DGXeon/fungames/main/GuessTheWord.js')
-let result = anu[Math.floor(Math.random() * anu.length)]
-XeonBotInc.sendText(m.chat, `Please answer the following question\n\n${result.soal}\nTime : 60s`, m).then(() => {
-tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-})
-await sleep(60000)
-if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
-console.log("Answer: " + result.jawaban)
-XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'guess word', buttonText: { displayText: 'Guess The Word' }, type: 1 }], `Time Out\nAnswer:  ${tebakkata[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, `${global.botname}`, m)
-delete tebakkata[m.sender.split('@')[0]]
-}
-} else if (args[0] === 'sentence') {
-if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
-let anu = await fetchJson('https://raw.githubusercontent.com/DGXeon/fungames/main/GuessTheSentence.js')
-let result = anu[Math.floor(Math.random() * anu.length)]
-XeonBotInc.sendText(m.chat, `Please answer the following question\n\n${result.soal}\nTime : 60s`, m).then(() => {
-tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
-})
-await sleep(60000)
-if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
-console.log("Answer: " + result.jawaban)
-XeonBotInc.sendButtonText(m.chat, [{ buttonId: 'guess sentence', buttonText: { displayText: 'Guess the Sentence' }, type: 1 }], `Time Out\nAnswer:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nWant to play? press the button below`, `${global.botname}`, m)
-delete tebakkalimat[m.sender.split('@')[0]]
 }
 } else if (args[0] === 'lyrics') {
 if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) return replay("There are still unfinished sessions!")
@@ -1840,7 +1814,7 @@ if (isBanChat) return reply(mess.banChat)
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
             let buttons = [
-                        { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
+                        { buttonId: 'GAY', buttonText: { displayText: 'GAY' }, type: 1 }
                     ]
                     await XeonBotInc.sendButtonText(m.chat, buttons, jawab, XeonBotInc.user.name, m, {mentions: ments})
             }
@@ -1853,10 +1827,10 @@ if (isBanChat) return reply(mess.banChat)
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
             let jawab = `@${orang.split('@')[0]} ❤️ @${jodoh.split('@')[0]}
-Cieeee, What's Going On❤️💖👀`
+Cieeee, Semoga Jadian beneran❤️💖👀`
             let menst = [orang, jodoh]
             let buttons = [
-                        { buttonId: '❤️', buttonText: { displayText: '❤️' }, type: 1 }
+                        { buttonId: 'GAY', buttonText: { displayText: 'GAY' }, type: 1 }
                     ]
                     await XeonBotInc.sendButtonText(m.chat, buttons, jawab, XeonBotInc.user.name, m, {mentions: menst})
             }
@@ -2041,7 +2015,7 @@ XeonBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${s
             let jawab = `The Most *${command}* Here Is @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
             let buttons = [
-                        { buttonId: '👀', buttonText: { displayText: '👀😂' }, type: 1 }
+                        { buttonId: 'Layak😂', buttonText: { displayText: 'Layak bang😂' }, type: 1 }
                     ]
                     await XeonBotInc.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})
             }
@@ -2050,87 +2024,58 @@ case 'dare':
                    if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
               const dare =[
-    "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",
-    "spill people who make you pause",
-    "call crush/pickle now and send ss",
-    "drop only emote every time you type on gc/pc for 1 day.",
-    "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",
-    "call ex saying miss",
-    "sing the chorus of the last song you played",
-    "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss🥺👉🏼👈🏼",
-	"Bang on the table (which is at home) until you get scolded for being noisy",
-    "Tell random people _I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",
-    "mention ex's name",
-    "make 1 rhyme for the members!",
-    "send ur whatsapp chat list",
-    "chat random people with gheto language then ss here",
-    "tell your own version of embarrassing things",
-    "tag the person you hate",
-    "Pretending to be possessed, for example: possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",
-    "change name to *I AM DONKEY* for 24 hours",
-    "shout *ma chuda ma chuda ma chuda* in front of your house",
-    "snap/post boyfriend photo/crush",
-    "tell me your boyfriend type!",
-    "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",
-    "record ur voice that read *titar ke age do titar, titar ke piche do titar*",
-    "prank chat ex and say *i love u, please come back.* without saying dare!",
-    "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",
-    "change the name to *I am a child of randi* for 5 hours",
-    "type in bengali 24 hours",
-    "Use selmon bhoi photo for 3 days",
-    "drop a song quote then tag a suitable member for that quote",
-    "send voice note saying can i call u baby?",
-    "ss recent call whatsapp",
-    "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",
-    "pop to a group member, and say fuck you",
-    "Act like a chicken in front of ur parents",
-    "Pick up a random book and read one page out loud in vn n send it here",
-    "Open your front door and howl like a wolf for 10 seconds",
-    "Take an embarrassing selfie and paste it on your profile picture",
-    "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",
-    "Walk on your elbows and knees for as long as you can",
-    "sing national anthem in voice note",
-    "Breakdance for 30 seconds in the sitting room😂",
-    "Tell the saddest story you know",
-    "make a twerk dance video and put it on status for 5mins",
-    "Eat a raw piece of garlic",
-    "Show the last five people you texted and what the messages said",
-    "put your full name on status for 5hrs",
-    "make a short dance video without any filter just with a music and put it on ur status for 5hrs",
-    "call ur bestie, bitch",
-    "put your photo without filter on ur status for 10mins",
-    "say i love oli london in voice note🤣🤣",
-    "Send a message to your ex and say I still like you",
-    "call Crush/girlfriend/bestie now and screenshot here",
-    "pop to one of the group member personal chat and Say you ugly bustard",
-    "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",
-    "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",
-    "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",
-    "use any bollywood actor photo as ur pfp for 3 days",
-    "put your crush photo on status with caption, this is my crush",
-    "change name to I AM GAY for 5 hours",
-    "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",
-    "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",
-    "slap ur butt hardly send the sound of slap through voice note😂",
-    "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",
-    "shout bravooooooooo and send here through voice note",
-    "snap your face then send it here",
-    "Send your photo with a caption, i am lesbian",
-    "shout using harsh words and send it here through vn",
-    "shout you bastard in front of your mom/papa",
-    "change the name to i am idiot for 24 hours",
-    "slap urself firmly and send the sound of slap through voice note😂",
-    "say i love the bot owner xeon through voice note",
-    "send your gf/bf pic here",
-    "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
-    "breakup with your best friend for 5hrs without telling him/her that its a dare",
-     "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",
-     "say i love depak kalal through voice note",
-     "write i am feeling horny and put it on status, u can delete it only after 5hrs",
-     "write i am lesbian and put it on status, u can delete only after 5hrs",
-     "kiss your mommy or papa and say i love you😌",
-     "put your father name on status for 5hrs",
-     "send abusive words in any grup, excepting this grup, and send screenshot proof here"
+    "ketik aku GAY sebanyak 5x di grup ini",
+    "ketik aku cinta ADIB di grup ini",
+    "ketik aku cinta MAMAT di grup ini",
+    "ketik aku cinta DANANG di grup ini",
+    "ketik aku cinta ADRYAN di grup ini",
+    "ketik aku cinta NOPA di grup ini",
+    "ketik aku cinta RYAN di grup ini",
+    "ketik aku cinta GAMA di grup ini🏼",
+		          "ketik aku cinta RAKA di grup ini",
+	"ketik aku GAY sebanyak 10x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL GAMA sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL ADIB sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL ADRYAN sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL NOPA sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL MAMAT sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL RYAN sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL DANANG sebanyak 3x di grup ini",
+    "ketik AKU SANGE LIHAT KONTOL RAKA sebanyak 3x di grup ini",
+    "ganti nama whatsapp *AKU GAY* selama 24 jam",
+    "ketik *LU KONTOL* dan tag salah satu member",
+    "posting foto pacar bagi yang punya",
+    "tipe cewe idaman mu",
+    "tipe cowo idaman mu",
+    "pap tt",
+    "chat salah satu kontak cewe di whatsapp kamu terus bilang aku sebenernya suka sama kamu",
+    "ganti nama whatsapp *AKU HEWAN* selama 24 jam",
+    "ganti nama whatsapp *GAY* selama 24 jam",
+    "ganti nama whatsapp *HOMO* selama 24 jam",
+    "bikin story WA dengan tulisan -BIJI KU KECIL BANGET-",
+    "bikin story WA dengan tulisan -PENGEN DIMANJA-",
+    "bikin story WA dengan tulisan -PENGEN DIPELUK-",
+    "bikin story WA dengan tulisan -PENGEN DISAYANG-",
+    "bikin story WA dengan tulisan -PENGEN DICIUM-",
+    "bikin story WA dengan tulisan -AKU GAY-",
+    "bikin story WA dengan tulisan -AKU ADALAH 100% HOMO-",
+    "bikin story WA dengan tulisan -AKU 100% GAY-",
+    "VOICE DESAH DI GRUP INI SELAMA 10 DETIK",
+    "VOICE DESAH DI GRUP INI SELAMA 2 DETIK",
+    "VOICE DESAH DI GRUP INI SELAMA 1 MENIT",
+    "VOICE DESAH DI GRUP INI SELAMA 30 DETIK",
+    "VOICE SEBUT NAMA LALU BILANG AKU GAY",
+    "VOICE SEBUT NAMA LALU BILANG AKU GANTENG BANGET",
+    "VOICE SEBUT NAMA LALU BILANG AKU PECINTA ANAK ANAK",
+    "VOICE SEBUT NAMA LALU BILANG MAAF AKU HABIS NGOCOK",
+    "VOICE SEBUT NAMA LALU BILANG AKU HABIS NGOCOK",
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM ADIB",
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM DANANG",
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM ADRYAN",
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM NOPA",
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM RAKA",
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM RYAN",
+     "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM GAMA"
 ]
               const xeondare = dare[Math.floor(Math.random() * dare.length)]
               buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -2141,95 +2086,18 @@ case 'dare':
        if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
               const truth =[
-    "Have you ever liked anyone? How long?",
-    "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
+    "TERAKHIR NGOCOK?",
+    "BERAPA JAM/HARI/BULAN/TAHUN KAMU NGOCOK?",
     "apa ketakutan terbesar kamu?",
-    "Have you ever liked someone and felt that person likes you too?",
-    "What is the name of your friend's ex-girlfriend that you used to secretly like?",
-    "Have you ever stolen money from your father or mom? The reason?",
-    "What makes you happy when you're sad?",
-    "Ever had a one sided love? if so who? how does it feel bro?", 
-    "been someone's mistress?",
-    "the most feared thing",
-    "Who is the most influential person in your life?",
-    "what proud thing did you get this year", 
-    "Who is the person who can make you awesome", 
-    "Who is the person who has ever made you very happy?", 
-    "Who is closest to your ideal type of partner here", 
-    "Who do you like to play with??", 
-    "Have you ever rejected people? the reason why?",
-    "Mention an incident that made you hurt that you still remember", 
-    "What achievements have you got this year??",
-    "What's your worst habit at school??",
-    "What song do you sing most in the shower",
-    "Have you ever had a near-death experience",
-    "When was the last time you were really angry. Why?",
-    "Who is the last person who called you",
-    "Do you have any hidden talents, What are they",
-    "What word do you hate the most?",
-    "What is the last YouTube video you watched?",
-    "What is the last thing you Googled",
-    "Who in this group would you want to swap lives with for a week",
-    "What is the scariest thing thats ever happened to you",
-    "Have you ever farted and blamed it on someone else",
-    "When is the last time you made someone else cry",
-    "Have you ever ghosted a friend",
-    "Have you ever seen a dead body",
-    "Which of your family members annoys you the most and why",
-    "If you had to delete one app from your phone, which one would it be",
-    "What app do you waste the most time on",
-    "Have you ever faked sick to get home from school",
-    "What is the most embarrassing item in your room",
-    "What five items would you bring if you got stuck on a desert island",
-    "Have you ever laughed so hard you peed your pants",
-    "Do you smell your own farts",
-    "have u ever peed on the bed while sleeping ðŸ¤£ðŸ¤£",
-    "What is the biggest mistake you have ever made",
-    "Have you ever cheated in an exam",
-    "What is the worst thing you have ever done",
-    "When was the last time you cried",
-    "whom do you love the most among ur parents", 
-    "do u sometimes put ur finger in ur nosetrilðŸ¤£", 
-    "who was ur crush during the school days",
-    "tell honestly, do u like any boy in this grup",
-    "have you ever liked anyone? how long?",
-    "do you have gf/bf','what is your biggest fear?",
-    "have you ever liked someone and felt that person likes you too?",
-    "What is the name of your ex boyfriend of your friend that you once liked quietly?",
-    "ever did you steal your mothers money or your fathers money",
-    "what makes you happy when you are sad",
-    "do you like someone who is in this grup? if you then who?",
-    "have you ever been cheated on by people?",
-    "who is the most important person in your life",
-    "what proud things did you get this year",
-    "who is the person who can make you happy when u r sad",
-    "who is the person who ever made you feel uncomfortable",
-    "have you ever lied to your parents",
-    "do you still like ur ex",
-    "who do you like to play together with?",
-    "have you ever stolen big thing in ur life? the reason why?",
-    "Mention the incident that makes you hurt that you still remember",
-    "what achievements have you got this year?",
-    "what was your worst habit at school?",
-    "do you love the bot creator, xeon?ðŸ¦„",
-    "have you ever thought of taking revenge from ur teacher?",
-    "do you like current prime minister of ur country",
-    "you non veg or veg",
-    "if you could be invisible, what is the first thing you would do",
-    "what is a secret you kept from your parents",
-    "Who is your secret crush",
-    "whois the last person you creeped on social media",
-    "If a genie granted you three wishes, what would you ask for",
-    "What is your biggest regret",
-    "What animal do you think you most look like",
-    "How many selfies do you take a day",
-    "What was your favorite childhood show",
-    "if you could be a fictional character for a day, who would you choose",
-    "whom do you text the most",
-    "What is the biggest lie you ever told your parents",
-    "Who is your celebrity crush",
-    "Whats the strangest dream you have ever had",
-    "do you play pubg, if you then send ur id number"
+    "TERAKHIR NGOCOK PAKE APA?",
+    "TERAKHIR NGOCOK GARA-GARA APA?",
+    "APAKAH KAMU SANGE NGELIHAT DURIAN?",
+    "SEBERAPA SANGE KAMU SEKARANG?",
+    "SEBERAPA HORNI KAMU SEKARANG?", 
+    "SIAPA DISINI ORANG YANG PALING KONTOL DAN TAG ORANGNYA?",
+    "SIAPA DISINI ORANG YANG PALING GANTENG DAN TAG ORANGNYA?",
+    "SIAPA YANG PENGEN KAMU KOCOKIN DI GRUP INI?",
+    "HAL APA YANG BIKIN KAMU SANGE / HORNI?"
 ]
               const xeontruth = truth[Math.floor(Math.random() * truth.length)]
               buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
@@ -2248,7 +2116,7 @@ if (isBan) return reply(mess.ban)
 if (isBanChat) return reply(mess.banChat)
               if (!text) return replay(`Use Text, Example : ${prefix + command} hinata`)
               qq = q.toUpperCase()
-              awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah the smell of hair ${qq} smelly i want to smell the fragrance ${qq} AAAAAAAAH ~ Her hair.... aaah i want to stroke her hair too ~~ AAAAAH ${qq} first time out in anime is cute too ❤️ ❤️ ❤️ so AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUUU............ ${qq} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️what ? ${qq} it's not real ? Just HELL you say ? no, no no no no no no no no no no no no no no no !! I DON'T CARE ABOUT THE REALITY, I DON'T CARE. ❤️ ❤️ ❤️ ${qq} me ... ${qq} on the laptop watching me, ${qq} .. you believe in me ? aaaaaaaaaaah thanks ${q} I don't want to give up ${qq} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH I STILL HAVE ${qq} ALSO NOT THE SAME AAAAAAAAAAAAAAH`
+              awikwok = `${qq} ${qq} ${qq} ❤️ ❤️ ❤️ WANGY WANGY WANGY WANGY HU HA HU HA HU HA, aaah bau rambut ${qq} baunya aku ingin menciumnya ${qq} AAAAAAAAH ~ rambutnya.... aaah aku ingin kontolnya ~~ AAAAAH ${qq} pengen ku jilaat sampe habiiissssss... ❤️ ❤️ ❤️ so AAAAAAAH ${qq} AAAAAA LUCCUUUUUUUUUUUUU............ ${qq} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️pengen kukocok ${qq} AHH AHH TOLOONGG AKU PENGEN NGOCOK SEKARANG no, no no no no no no no no no no no no no no no !! AKU GAK PEDULI APAPUN YANG TERJADI, AKU UDAH GAK TAHAN. ❤️ ❤️ ❤️ ${qq} AKU... KETIKA ${qq} MELIHATKU,AKU SANGAT SANGE, ${qq} .. KAMU MAU GAK AKU JILAT SAMPE HABIS ? aaaaaaaaaaah MAKASIH ${q} AKU TIDAK AKAN PERNAH MENYERAH ${qq} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH AKU INGIN MENJILAT ${qq} SELURUH BADANMU AAAAAAAAAAAAAAH`
              reply(awikwok)
               break
 case 'checkdeath':
@@ -3027,7 +2895,7 @@ var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNobody is allowed to use bad words in this group, one who uses will be kicked immediately!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nhayoo yang berkata kasar nanti kena tendang lohh!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!antiToxic) return replay('Already deactivated')
 let off = nttoxic.indexOf(from)
@@ -3089,7 +2957,7 @@ var mems = []
 members.map(async adm => {
 mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
-XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature has been enabled in this group, which means one can access sexual graphics from the bot!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+XeonBotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nMODE HORNI TELAH DIAKTIFKAN DI GRUP INI, BERHATI HATILAH!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
 if (!AntiNsfw) return replay('Already deactivated')
 let off = ntnsfw.indexOf(from)
@@ -9443,168 +9311,6 @@ await XeonBotInc.send5ButImg(from, `╔═══════✪「 OWNER 」
 ╠ ${prefix}playboy
 ╠ ${prefix}fuckgirl
 ╠ ${prefix}playgirl
-╠══════✪「 SOUND 」
-╠ ${prefix}sound1
-╠ ${prefix}sound2
-╠ ${prefix}sound3
-╠ ${prefix}sound4
-╠ ${prefix}sound5
-╠ ${prefix}sound6
-╠ ${prefix}sound7
-╠ ${prefix}sound8
-╠ ${prefix}sound9
-╠ ${prefix}sound10
-╠ ${prefix}sound11
-╠ ${prefix}sound12
-╠ ${prefix}sound13
-╠ ${prefix}sound14
-╠ ${prefix}sound15
-╠ ${prefix}sound16
-╠ ${prefix}sound17
-╠ ${prefix}sound18
-╠ ${prefix}sound19
-╠ ${prefix}sound20
-╠ ${prefix}sound21
-╠ ${prefix}sound22
-╠ ${prefix}sound23
-╠ ${prefix}sound24
-╠ ${prefix}sound25
-╠ ${prefix}sound26
-╠ ${prefix}sound27
-╠ ${prefix}sound28
-╠ ${prefix}sound29
-╠ ${prefix}sound30
-╠ ${prefix}sound31
-╠ ${prefix}sound32
-╠ ${prefix}sound33
-╠ ${prefix}sound34
-╠ ${prefix}sound35
-╠ ${prefix}sound36
-╠ ${prefix}sound37
-╠ ${prefix}sound38
-╠ ${prefix}sound39
-╠ ${prefix}sound40
-╠ ${prefix}sound41
-╠ ${prefix}sound42
-╠ ${prefix}sound43
-╠ ${prefix}sound44
-╠ ${prefix}sound45
-╠ ${prefix}sound46
-╠ ${prefix}sound47
-╠ ${prefix}sound48
-╠ ${prefix}sound49
-╠ ${prefix}sound50
-╠ ${prefix}sound51
-╠ ${prefix}sound52
-╠ ${prefix}sound53
-╠ ${prefix}sound54
-╠ ${prefix}sound55
-╠ ${prefix}sound56
-╠ ${prefix}sound57
-╠ ${prefix}sound58
-╠ ${prefix}sound59
-╠ ${prefix}sound60
-╠ ${prefix}sound61
-╠ ${prefix}sound62
-╠ ${prefix}sound63
-╠ ${prefix}sound64
-╠ ${prefix}sound65
-╠ ${prefix}sound66
-╠ ${prefix}sound67
-╠ ${prefix}sound68
-╠ ${prefix}sound69
-╠ ${prefix}sound70
-╠ ${prefix}sound71
-╠ ${prefix}sound72
-╠ ${prefix}sound73
-╠ ${prefix}sound74
-╠ ${prefix}sound75
-╠ ${prefix}sound76
-╠ ${prefix}sound77
-╠ ${prefix}sound78
-╠ ${prefix}sound79
-╠ ${prefix}sound80
-╠ ${prefix}sound81
-╠ ${prefix}sound82
-╠ ${prefix}sound83
-╠ ${prefix}sound84
-╠ ${prefix}sound85
-╠ ${prefix}sound86
-╠ ${prefix}sound87
-╠ ${prefix}sound88
-╠ ${prefix}sound89
-╠ ${prefix}sound90
-╠ ${prefix}sound91
-╠ ${prefix}sound92
-╠ ${prefix}sound93
-╠ ${prefix}sound94
-╠ ${prefix}sound95
-╠ ${prefix}sound96
-╠ ${prefix}sound97
-╠ ${prefix}sound98
-╠ ${prefix}sound99
-╠ ${prefix}sound100
-╠ ${prefix}sound101
-╠ ${prefix}sound102
-╠ ${prefix}sound103
-╠ ${prefix}sound104
-╠ ${prefix}sound105
-╠ ${prefix}sound106
-╠ ${prefix}sound107
-╠ ${prefix}sound108
-╠ ${prefix}sound109
-╠ ${prefix}sound110
-╠ ${prefix}sound111
-╠ ${prefix}sound112
-╠ ${prefix}sound113
-╠ ${prefix}sound114
-╠ ${prefix}sound115
-╠ ${prefix}sound116
-╠ ${prefix}sound117
-╠ ${prefix}sound118
-╠ ${prefix}sound119
-╠ ${prefix}sound120
-╠ ${prefix}sound121
-╠ ${prefix}sound122
-╠ ${prefix}sound123
-╠ ${prefix}sound124
-╠ ${prefix}sound125
-╠ ${prefix}sound126
-╠ ${prefix}sound127
-╠ ${prefix}sound128
-╠ ${prefix}sound129
-╠ ${prefix}sound130
-╠ ${prefix}sound131
-╠ ${prefix}sound132
-╠ ${prefix}sound133
-╠ ${prefix}sound134
-╠ ${prefix}sound135
-╠ ${prefix}sound136
-╠ ${prefix}sound137
-╠ ${prefix}sound138
-╠ ${prefix}sound139
-╠ ${prefix}sound140
-╠ ${prefix}sound141
-╠ ${prefix}sound142
-╠ ${prefix}sound143
-╠ ${prefix}sound144
-╠ ${prefix}sound145
-╠ ${prefix}sound146
-╠ ${prefix}sound147
-╠ ${prefix}sound148
-╠ ${prefix}sound149
-╠ ${prefix}sound150
-╠ ${prefix}sound151
-╠ ${prefix}sound152
-╠ ${prefix}sound153
-╠ ${prefix}sound154
-╠ ${prefix}sound155
-╠ ${prefix}sound156
-╠ ${prefix}sound157
-╠ ${prefix}sound158
-╠ ${prefix}sound159
-╠ ${prefix}sound160
-╠ ${prefix}sound161
 ╠══════✪「 GAME 」
 ╠ ${prefix}truth
 ╠ ${prefix}dare
@@ -9656,7 +9362,7 @@ await XeonBotInc.send5ButImg(from, `╔═══════✪「 OWNER 」
 ╠${prefix}covidindo
 ╠${prefix}earthquake
 ╠${prefix}tvschedule
-╠══════✪「 INDO HSCOPE 」
+╠══════✪「 INDO HOROSCOPE 」
 ╠${prefix}nomorhoki
 ╠${prefix}artimimpi 
 ╠${prefix}artinama 
