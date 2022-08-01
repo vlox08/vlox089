@@ -37,8 +37,8 @@ global.APIKeys = {
 
 //aumto functioner
 global.autoTyping = false //auto tying in gc (true to on, false to off)
-global.autoreadpmngc = false //auto reading in gc and pm (true to on, false to off)
-global.autoReadGc = false //auto reading in gc (true to on, false to off)
+global.autoreadpmngc = true //auto reading in gc and pm (true to on, false to off)
+global.autoReadGc = true //auto reading in gc (true to on, false to off)
 global.autoRecord = false //auto recording (true to on, false to off)
 global.available = true //auto available (true to on, false to off)
 
@@ -55,7 +55,7 @@ global.doc6 = 'application/vnd.android.package-archive'
 
 //owmner v card
 global.vcardowner = ['6289614183080'] //ur owner number
-global.ownername = "Ryan tampan" //ur owner name
+global.ownername = "KRS" //ur owner name
 global.ytname = "YT: Ryan" //ur yt chanel name
 global.socialm = "GitHub: DGXeon" //ur github or insta name
 global.location = "India, Mizoram, Aizawl" //ur location
@@ -64,19 +64,19 @@ global.location = "India, Mizoram, Aizawl" //ur location
 global.owner = ['6289614183080']
 global.ownertag = '6289614183080' //ur tag number
 global.botname = 'remaja shiuu' //ur bot name
-global.linkz = "https://youtu.be/WiIqCdiDjFo" //your theme url which will be displayed on whatsapp
-global.websitex = "https://youtu.be/WiIqCdiDjFo" //ur website to be displayed
-global.botscript = 'https://github.com/DGXeon/CheemsBot-MD4' //script link
+global.linkz = "empty" //your theme url which will be displayed on whatsapp
+global.websitex = "empty" //ur website to be displayed
+global.botscript = 'empty' //script link
 global.reactmoji = "😘" //ur menu react emoji
 global.themeemoji = "🦄" //ur theme emoji
-global.packname = "Cheems Bot Stickers\n\n\n\n\n\n\n\n\n\n\n🦄🦄🦄 " //ur sticker watermark packname
-global.author = "🦄Dream Guy Xeon" //ur sticker watermark author
+global.packname = "REMAJA SHIUU " //ur sticker watermark packname
+global.author = "REMAJA SHIUU" //ur sticker watermark author
 
 //Bot theme media
-global.thum = fs.readFileSync("./XeonMedia/theme/cheemspic.jpg") //ur thumb pic
-global.log0 = fs.readFileSync("./XeonMedia/theme/cheemspic.jpg") //ur logo pic
-global.err4r = fs.readFileSync("./XeonMedia/theme/cheemspic.jpg") //ur error pic
-global.thumb = fs.readFileSync("./XeonMedia/theme/cheemspic.jpg") //ur thumb pic
+global.thum = fs.readFileSync("./XeonMedia/theme/cewe2.jpg") //ur thumb pic
+global.log0 = fs.readFileSync("./XeonMedia/theme/cewe3.jpg") //ur logo pic
+global.err4r = fs.readFileSync("./XeonMedia/theme/cewe4.jpg") //ur error pic
+global.thumb = fs.readFileSync("./XeonMedia/theme/cewe5.jpg") //ur thumb pic
 
 //damtabase
 global.premium = ['6289614183080'] //ur premium numbers
@@ -133,7 +133,7 @@ global.mess = {
    umpanawal: 5,
    potionawal: 1
 }
-global.thumb = fs.readFileSync('./XeonMedia/theme/cheemspic.jpg')
+global.thumb = fs.readFileSync('./XeonMedia/theme/cewe1.jpg')
 global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
