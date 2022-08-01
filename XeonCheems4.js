@@ -3398,7 +3398,7 @@ let media = await quoted.download()
 let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 await fs.unlinkSync(encmedia)
 } else {
-reply(`Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 Seconds`)
+reply(`Kirim gambar/Video atau reply punya orang ${prefix + command}\nVideo Duration 1-9 Seconds`)
 }
 }
 break
@@ -3422,7 +3422,7 @@ let media = await quoted.download()
 let encmedia = await XeonBotInc.sendVideoAsSticker(m.chat, media, m, { packname: pcknm, author: atnm })
 await fs.unlinkSync(encmedia)
 } else {
-reply(`Send Image/Video With Caption ${prefix + command}\nVideo Duration 1-9 Seconds`)
+reply(`Kirim gambar/Video atau reply punya orang ${prefix + command}\nVideo Duration 1-9 Seconds`)
 }
 }
 break
@@ -3430,9 +3430,9 @@ case 'smeme': case 'stickermeme': case 'stickmeme': {
 	   if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 let { TelegraPh } = require('./lib/uploader')
-if (!text) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (text.includes('|')) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
-if (!/image/.test(mime)) return reply(`Send/Reply Photo With Caption ${prefix + command} *text*`)
+if (!text) return reply(`Kirim/Reply Foto orang lain ${prefix + command} *text*`)
+if (text.includes('|')) return reply(`Kirim/Reply Foto orang lain ${prefix + command} *text*`)
+if (!/image/.test(mime)) return reply(`Kirim/Reply Foto orang lain ${prefix + command} *text*`)
 reply(mess.wait)
 mee = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(mee)
