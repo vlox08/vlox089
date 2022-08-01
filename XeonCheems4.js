@@ -2902,7 +2902,7 @@ let off = nttoxic.indexOf(from)
 nttoxic.splice(off, 1)
 replay('Success in turning off antitoxic in this group')
 } else {
-  let buttonsnttoxci = [
+  let buttonsnttoxic = [
   { buttonId: `${command} on`, buttonText: { displayText: 'On' }, type: 1 },
   { buttonId: `${command} off`, buttonText: { displayText: 'Off' }, type: 1 }
   ]
@@ -10293,10 +10293,10 @@ case 'tqtt':
 	   if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
 reply(`Thanks to
-LORD BUDDHA
-Xeon (Me)
-My family
-And all friends who helped assemble this sexy script !!!`)
+Allah SWT
+Nabi Muhammad
+Para Remaja Shiuu
+dan orang tua khususnya mama`)
 break
             default:
                 if (budy.startsWith('=>')) {
