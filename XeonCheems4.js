@@ -625,7 +625,7 @@ XeonBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
   }
 //anti bad words by xeon
 if (antiToxic)
-if (bad.includes(messagesD)) {
+if (bad.includes) {
 tos = ['bang gak boleh toxic','kasar banget','berhenti toxic kawanku🤢','jangan toxic bang, inget tuhan']
 sin =  tos[Math.floor(Math.random() * (tos.length))]
 reply(sin)
