@@ -190,10 +190,6 @@ const {
  let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
 
 //Database omther\\
-let xeonysticker = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne-Ke-Liye/sticker.json'));
-let xeonyaudio = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne-Ke-Liye/audio.json'));
-let xeonyimage = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne-Ke-Liye/image.json'));
-let xeonyvideo = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne-Ke-Liye/video.json'));
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'));
 const _autostick = JSON.parse(fs.readFileSync('./database/autostickpc.json'));
 let banUser = JSON.parse(fs.readFileSync('./database/banUser.json'));
@@ -3251,7 +3247,7 @@ teks += ` ┗━${global.themeemoji} *Time :* ${moment(waktu * 1000).format('DD/
 XeonBotInc.sendTextWithMentions(m.chat, teks, m)
 }
 break
-case 'q': case 'quoted': {
+case 'quoted': {
    if (isBan) return reply(mess.ban)	 			
 if (isBanChat) return reply(mess.banChat)
 if (!m.quoted) return replay('Reply Message!!')
@@ -3426,19 +3422,19 @@ reply(`Kirim gambar/Video atau reply punya orang ${prefix + command}\nVideo Dura
 }
 }
 break
-case 'smeme': case 'stickermeme': case 'stickmeme': {
-	   if (isBan) return reply(mess.ban)	 			
-if (isBanChat) return reply(mess.banChat)
+      case 'smeme': case 'stickmeme': case 'stikmeme': case 'stickermeme': case 'stikermeme': {
+let respond = `Kirim/reply image dengan caption ${prefix + command} text1|text2`
+if (!/image/.test(mime)) throw respond
+if (!text) throw respond
+
+atas = text.split('|')[0] ? text.split('|')[0] : '-'
+bawah = text.split('|')[1] ? text.split('|')[1] : '-'
+let dwnld = await conn.downloadAndSaveMediaMessage(quoted)
 let { TelegraPh } = require('./lib/uploader')
-if (!text) return reply(`Kirim/Reply Foto orang lain ${prefix + command} *text*`)
-if (text.includes('|')) return reply(`Kirim/Reply Foto orang lain ${prefix + command} *text*`)
-if (!/image/.test(mime)) return reply(`Kirim/Reply Foto orang lain ${prefix + command} *text*`)
-reply(mess.wait)
-mee = await XeonBotInc.downloadAndSaveMediaMessage(quoted)
-mem = await TelegraPh(mee)
-meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`
-memek = await XeonBotInc.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })
-await fs.unlinkSync(media)
+let fatGans = await TelegraPh(dwnld)
+let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas)}/${encodeURIComponent(bawah)}.png?background=${fatGans}`
+let FaTiH = await conn.sendImageAsSticker(m.chat, smeme, m, { packname: global.packname, author: global.auhor })
+await fs.unlinkSync(FaTiH)
 }
 break
             case 'ebinary': {
@@ -8464,7 +8460,7 @@ replay('Choose on or off')
 }
 }
 break
-            case 'ping': case 'p': case 'botstatus': case 'statusbot': {
+            case 'ping': case 'botstatus': case 'statusbot': {
             	if (isBan) return reply(mess.ban)
 	if (isBanChat) return reply(mess.banChat)
                 const used = process.memoryUsage()
