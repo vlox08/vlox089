@@ -2032,8 +2032,8 @@ case 'dare':
     "ketik aku cinta NOPA di grup ini",
     "ketik aku cinta RYAN di grup ini",
     "ketik aku cinta GAMA di grup ini🏼",
-		          "ketik aku cinta RAKA di grup ini",
-	"ketik aku GAY sebanyak 10x di grup ini",
+    "ketik aku cinta RAKA di grup ini",
+    "ketik aku GAY sebanyak 10x di grup ini",
     "ketik AKU SANGE LIHAT KONTOL GAMA sebanyak 3x di grup ini",
     "ketik AKU SANGE LIHAT KONTOL ADIB sebanyak 3x di grup ini",
     "ketik AKU SANGE LIHAT KONTOL ADRYAN sebanyak 3x di grup ini",
@@ -2075,11 +2075,11 @@ case 'dare':
     "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM NOPA",
     "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM RAKA",
     "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM RYAN",
-     "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM GAMA"
+    "VOICE SEBUT NAMA LALU BILANG PENGEN DIBDSM GAMA"
 ]
               const xeondare = dare[Math.floor(Math.random() * dare.length)]
               buffer = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
-              XeonBotInc.sendMessage(from, { image: buffer, caption: '_You choose DARE_\n'+ xeondare }, {quoted:m})
+              XeonBotInc.sendMessage(from, { image: buffer, caption: '_Kamu memilih DARE_\n'+ xeondare }, {quoted:m})
               break
                             break
        case 'truth':
@@ -2096,6 +2096,8 @@ case 'dare':
     "SEBERAPA HORNI KAMU SEKARANG?", 
     "SIAPA DISINI ORANG YANG PALING KONTOL DAN TAG ORANGNYA?",
     "SIAPA DISINI ORANG YANG PALING GANTENG DAN TAG ORANGNYA?",
+    "SIAPA YANG PENGEN KAMU KOCOKIN DI GRUP INI?",
+    "KAPAN TERAKHIR KALI KAMU DIKOCOKIN?",
     "SIAPA YANG PENGEN KAMU KOCOKIN DI GRUP INI?",
     "HAL APA YANG BIKIN KAMU SANGE / HORNI?"
 ]
